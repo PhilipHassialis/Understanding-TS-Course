@@ -1,38 +1,22 @@
-// const person: {
-//     name: string;
-//     age: number;
-// } 
+enum conversionType { asNumber, asText };
 
-// const person: {
-//     name: string;
-//     age: number;
-//     hobbies: string[];
-//     role: [number, string];
+type Combinable = number | string;
+type ConversionDescriptor = "asNumber" | "asText";
 
-// } = {
-//     name: 'Philip',
-//     age: 45,
-//     hobbies: ['coding', 'wanking'],
-//     role: [2, 'coder']
-// };
-// person.role = [0, 'admin'];
+function combine(input1: Combinable, input2: Combinable, resultConversion: ConversionDescriptor) {
+    let result;
+    if (typeof input1 === 'number' && typeof input2 === 'number' || resultConversion === "asNumber") {
+        result = +input1 + +input2;
+    } else {
+        result = input1.toString() + input2.toString();
+    }
+    return result;
+    // if (resultConversion === 'asNumber') return +result;
+    // return result;
 
-enum Role { ADMIN = 1000, READ_ONLY = 'READ_ONLY', AUTHOR = 2000 };
-
-const person = {
-    name: 'Philip',
-    age: 45,
-    hobbies: ['coding', 'wanking'],
-    role: Role.READ_ONLY
-};
-
-let favoriteActivities: string[];
-// favoriteActivities = ['Sports',1]  -- error
-
-
-
-console.log(person)
-
-for (const hobby of person.hobbies) {
-    console.log(hobby.toUpperCase());
 }
+
+console.log(combine('Philip ', 'Alexander', "asText"));
+console.log(combine(3, 5, "asNumber"));
+console.log(combine('40', '26', "asNumber"))
+
