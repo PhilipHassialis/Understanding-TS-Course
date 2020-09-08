@@ -1,25 +1,25 @@
-function add(n1: number, n2: number) {
+function functions_add(n1: number, n2: number) {
     return n1 + n2;
 }
 
-function printResult(num: number): void {
+function functions_printResult(num: number): void {
     console.log('Result:' + num);
 }
 
-function addAndHandle(n1: number, n2: number, cb: (a: number) => void) {
+function functions_addAndHandle(n1: number, n2: number, cb: (a: number) => void) {
     const result = n1 + n2;
     cb(result);
 
 }
 
-printResult(add(3, 4))
+functions_printResult(functions_add(3, 4))
 
-let combineValues: (a: number, b: number) => number;
+let functions_combineValues: (a: number, b: number) => number;
 
-combineValues = add;
+functions_combineValues = functions_add;
 // combineValues = printResult;
 
-console.log(combineValues(3, 9));
+console.log(functions_combineValues(3, 9));
 
-addAndHandle(12, 18, (result) => { console.log(result) })
+functions_addAndHandle(12, 18, (result) => { console.log(result) })
 
