@@ -1,25 +1,20 @@
-function add(n1: number, n2: number) {
-    return n1 + n2;
+let userInput: unknown;
+let userName: string;
+
+userInput = 5;
+userInput = "shit";
+
+//  userName = userInput; error cannot assign unknown to string
+if (typeof (userInput) === 'string') {
+    userName = userInput;  // is okay, we checked for type
 }
 
-function printResult(num: number): void {
-    console.log('Result:' + num);
+function generateError(message: string, code: number): never {  // it never will return anything
+    throw {
+        message: message,
+        errorCode: code
+    }
 }
 
-function addAndHandle(n1: number, n2: number, cb: (a: number) => void) {
-    const result = n1 + n2;
-    cb(result);
-
-}
-
-printResult(add(3, 4))
-
-let combineValues: (a: number, b: number) => number;
-
-combineValues = add;
-// combineValues = printResult;
-
-console.log(combineValues(3, 9));
-
-addAndHandle(12, 18, (result) => { console.log(result) })
+generateError("Bad server", 500);
 

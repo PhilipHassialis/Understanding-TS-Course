@@ -5,12 +5,14 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "parcel serve src/index.html"
+        "start": "parcel serve src/index.html",
+        "startts": "lite-server"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "lite-server": "^2.5.4",
         "parcel": "^2.0.0-beta.1",
         "typescript": "^4.0.2"
     }
