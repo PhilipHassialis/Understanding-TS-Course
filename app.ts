@@ -1,7 +1,15 @@
 console.log("test with tsc");
 
-const button = document.querySelector('button')!;
+enum EngineerGrade { JUNIOR, INTERMEDIATE, SENIOR, PRINCIPAL }
 
-button.addEventListener('click', () => {
-    console.log("Clicked!")
-})
+const button = document.querySelector('button');
+
+function clickHandler(message: string) {
+    console.log(`${message}`);
+}
+
+// button?.addEventListener('click', () => {
+//     console.log("Clicked!")
+// })
+
+button?.addEventListener('click', clickHandler.bind(null, "my data"))
